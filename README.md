@@ -8,3 +8,6 @@
 - Data Structures
 - Python 🐍
 - SQL
+- Information
+- Tracks
+- Final Project
