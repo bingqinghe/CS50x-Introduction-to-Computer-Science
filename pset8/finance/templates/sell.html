@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %} SELL {% endblock %}
+
+{% block main %}
+    <form action='/sell' method='POST'>
+        <div class='form-group'>
+            <div class='input-group mb-3'>
+                <div class='input-group-prepend'>
+                    <label class="input-group-text" for="sell-option"> Stock </label>
+                </div>
+            </div>
+            <select id="sell-option" class="custom-select" name='symbol'>
+                <option selected> Choose the stock...</option>
+                {% for key, value in stocks.items() %}
+                <option value={{ key }}> {{ key }}, amount: {{ value }} </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class='form-group'>
+            <input min="1" autofocus class='form-control' name='amount' placeholder='Amount' type='number' />
+        </div>
+
+        <button type='submit' class='btn btn-primary'> Sell </button>
+    </form>
+{% endblock %}

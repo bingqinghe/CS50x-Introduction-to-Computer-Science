@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %} HISTORY {% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"> Symbol </th>
+                <th scope="col"> Name </th>
+                <th scope="col"> SHARES </th>
+                <th scope="col"> VALUE </th>
+                <th scope="col"> TOTAL </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for trans in transactions %}
+        <tr>
+            <th scope="row"> {{ trans[0] }} </th>
+            <td> {{ trans[1] }} </td>
+            <td> {{ trans[2] }} </td>
+            <td> {{ trans[3] }} </td>
+            <td> {{ trans[4] }} </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock%}

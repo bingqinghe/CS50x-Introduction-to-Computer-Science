@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %} QUOTE {% endblock %}
+
+{% block main %}
+    <form action="/quote" method="POST">
+        <div class="form-group">
+            <label for='symbol-name'> Symbol: </label>
+            <input type="text" class="form-control" id="symbol_name" name="symbol" placeholder="Symbol" autofocus required>
+        </div>
+        <button id="submit" type="submit" class="btn btn-primary"> Quote </button>
+    </form>
+    <br>
+    <hr>
+
+    {% if stock %}
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"> # </th>
+                <th scope="col"> Symbol </th>
+                <th scope="col"> Name </th>
+                <th scope="col"> Price </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td> {{ stock['symbol'] }} </td>
+                <td> {{ stock['name'] }} </td>
+                <td> $ {{ stock['price'] }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock %}
